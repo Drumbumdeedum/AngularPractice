@@ -11,6 +11,10 @@ export class ServersComponent implements OnInit {
   serverName = 'Testserver';
   username = 'Drumbumdeedum';
   serverCreated = false;
+  servers = ['Testserver', 'Testserver 2'];
+  toggle = true;
+  clicks = [];
+  buttonClickCounter = 0;
 
   constructor() {
     setTimeout(() => {
@@ -23,6 +27,7 @@ export class ServersComponent implements OnInit {
 
   onCreateServer() {
     this.serverCreated = true;
+    this.servers.push(this.serverName);
     this.serverCreationStatus = 'Server was created, name is: ' + this.serverName;
   }
 
@@ -36,5 +41,12 @@ export class ServersComponent implements OnInit {
 
   userNameEmpty() {
     return !this.username;
+  }
+
+  toggleButton() {
+    this.toggle = !this.toggle;
+    this.clicks.push(this.buttonClickCounter);
+    this.clicks.push(Date());
+    this.buttonClickCounter++;
   }
 }

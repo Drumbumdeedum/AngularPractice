@@ -1,7 +1,4 @@
-<app-server></app-server>
-<app-server></app-server>
-<app-server></app-server>
-<app-server></app-server>
+<app-server *ngFor="let server of servers"></app-server>
 
 <p>Server name: {{ serverName }}</p>
 <input type="text"
@@ -37,3 +34,13 @@
 <ng-template #noServer>
   <p>No server was created</p>
 </ng-template>
+
+<hr>
+
+<h1>Assignment 3</h1>
+
+<button class="btn btn-primary" (click)="toggleButton()">Display Details</button>
+<p *ngIf="toggle">Super-secret password: password12345</p>
+
+<p *ngFor="let count of clicks"
+   [ngClass]="{ blue: count > 5}">{{ count }}</p>
